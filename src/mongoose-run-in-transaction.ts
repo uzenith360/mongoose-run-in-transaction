@@ -1,8 +1,8 @@
 import mongoose, { Connection, ClientSession } from "mongoose";
-import TransactionCallback from "./transaction-callback.type";
+import { TransactionCallback } from "./transaction-callback.type";
 
 export default async (callback: TransactionCallback, connection: Connection = mongoose.connection)
-: Promise<void> => {
+    : Promise<void> => {
     const session: ClientSession = await connection.startSession();
 
     session.startTransaction();
